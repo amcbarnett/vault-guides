@@ -12,7 +12,7 @@
 #  provisioner "local-exec" {
 #    command = "chmod 600 private.key"
 #  }
-}
+#}
 
 #resource "aws_key_pair" "main" {
 #  key_name   = "vault-kms-unseal-${random_pet.env.id}"
@@ -22,10 +22,4 @@
 variable "SSH_KEY_NAME" {
   default = "vaultawskeypair"
   description = "Pre-existing AWS key name you will use to access the instance(s)"
-}
-
-variable "PRIVATE_KEY" {
-  default = ""
-  description = "Actual private key entered in TFE as a Sensitive Vatiable with -----BEGIN RSA PRIVATE KEY-----
-...... -----END RSA PRIVATE KEY-----"
 }
