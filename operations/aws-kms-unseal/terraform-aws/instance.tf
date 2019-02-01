@@ -27,8 +27,8 @@ resource "aws_instance" "vault" {
   instance_type = "t2.micro"
   count         = 1
   subnet_id     = "${aws_subnet.public_subnet.id}"
-  key_name      = "vault-kms-unseal-${random_pet.env.id}"
-
+  #key_name      = "vault-kms-unseal-${random_pet.env.id}"
+  key_name = "${var.SSH_KEY_NAME}"
   security_groups = [
     "${aws_security_group.vault.id}",
   ]
